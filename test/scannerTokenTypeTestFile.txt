@@ -1,0 +1,15 @@
+int
+void
+if
+8
+num
+return
+(
+)
+int num = 8;
+void a = c;
+while (true){
+    new;
+}
+1n |
+1%

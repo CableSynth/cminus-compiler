@@ -1,0 +1,324 @@
+gitProgram {
+   VarDecl a 
+   FunDecl addThem 
+     Param d
+     Param e
+     CmpStmt 
+       LocalDecls 
+         VarDecl f 
+       StmtList 
+         AssignExpr
+           VarExpr f 
+           BinaryExp PLUS_TOKEN
+             VarExpr d 
+             VarExpr e 
+         ReturnStmt 
+           VarExpr f 
+   FunDecl putDigit 
+     Param s
+     CmpStmt 
+       StmtList 
+         CallExpr putchar
+           BinaryExp PLUS_TOKEN
+             NumExpr 48 
+             VarExpr s 
+   FunDecl printInt 
+     Param r
+     CmpStmt 
+       LocalDecls 
+         VarDecl t 
+         VarDecl found 
+       StmtList 
+         AssignExpr
+           VarExpr found 
+           NumExpr 0 
+         SelectionStmt 
+           BinaryExp GREATER_EQUAL_TOKEN
+             VarExpr r 
+             NumExpr 10000 
+           CmpStmt 
+             StmtList 
+               CallExpr putchar
+                 NumExpr 45 
+               CallExpr putDigit
+                 NumExpr 1 
+               ReturnStmt 
+           CmpStmt 
+             StmtList 
+               SelectionStmt 
+                 BinaryExp GREATER_EQUAL_TOKEN
+                   VarExpr r 
+                   NumExpr 1000 
+                 CmpStmt 
+                   StmtList 
+                     AssignExpr
+                       VarExpr t 
+                       BinaryExp DIV_TOKEN
+                         VarExpr r 
+                         NumExpr 1000 
+                     CallExpr putDigit
+                       VarExpr t 
+                     AssignExpr
+                       VarExpr r 
+                       BinaryExp MINUS_TOKEN
+                         BinaryExp TIMES_TOKEN
+                           VarExpr t 
+                           NumExpr 1000 
+                         VarExpr r 
+                     AssignExpr
+                       VarExpr found 
+                       NumExpr 1 
+               SelectionStmt 
+                 BinaryExp GREATER_EQUAL_TOKEN
+                   VarExpr r 
+                   NumExpr 100 
+                 CmpStmt 
+                   StmtList 
+                     AssignExpr
+                       VarExpr t 
+                       BinaryExp DIV_TOKEN
+                         VarExpr r 
+                         NumExpr 100 
+                     CallExpr putDigit
+                       VarExpr t 
+                     AssignExpr
+                       VarExpr r 
+                       BinaryExp MINUS_TOKEN
+                         BinaryExp TIMES_TOKEN
+                           VarExpr t 
+                           NumExpr 100 
+                         VarExpr r 
+                     AssignExpr
+                       VarExpr found 
+                       NumExpr 1 
+                 SelectionStmt 
+                   BinaryExp EQUAL_TOKEN
+                     VarExpr found 
+                     NumExpr 1 
+                   CmpStmt 
+                     StmtList 
+                       CallExpr putDigit
+                         NumExpr 0 
+               SelectionStmt 
+                 BinaryExp GREATER_EQUAL_TOKEN
+                   VarExpr r 
+                   NumExpr 10 
+                 CmpStmt 
+                   StmtList 
+                     AssignExpr
+                       VarExpr t 
+                       BinaryExp DIV_TOKEN
+                         VarExpr r 
+                         NumExpr 10 
+                     CallExpr putDigit
+                       VarExpr t 
+                     AssignExpr
+                       VarExpr r 
+                       BinaryExp MINUS_TOKEN
+                         BinaryExp TIMES_TOKEN
+                           VarExpr t 
+                           NumExpr 10 
+                         VarExpr r 
+                 SelectionStmt 
+                   BinaryExp EQUAL_TOKEN
+                     VarExpr found 
+                     NumExpr 1 
+                   CmpStmt 
+                     StmtList 
+                       CallExpr putDigit
+                         NumExpr 0 
+               CallExpr putDigit
+                 VarExpr r 
+   FunDecl main 
+     Param void
+     CmpStmt 
+       LocalDecls 
+         VarDecl b 
+         VarDecl c 
+         VarDecl g 
+         VarDecl h 
+         VarDecl i 
+       StmtList 
+         AssignExpr
+           VarExpr b 
+           AssignExpr
+             VarExpr c 
+             NumExpr 5 
+         SelectionStmt 
+           BinaryExp EQUAL_TOKEN
+             VarExpr b 
+             NumExpr 5 
+           CmpStmt 
+             StmtList 
+               AssignExpr
+                 VarExpr a 
+                 NumExpr 3 
+           CmpStmt 
+             StmtList 
+               AssignExpr
+                 VarExpr a 
+                 NumExpr 4 
+         AssignExpr
+           VarExpr g 
+           NumExpr 0 
+         AssignExpr
+           VarExpr i 
+           NumExpr 1 
+         IterationStmt 
+           BinaryExp LESS_EQUAL_TOKEN
+             VarExpr i 
+             NumExpr 8 
+           CmpStmt 
+             StmtList 
+               AssignExpr
+                 VarExpr g 
+                 BinaryExp PLUS_TOKEN
+                   VarExpr g 
+                   VarExpr i 
+               AssignExpr
+                 VarExpr i 
+                 BinaryExp PLUS_TOKEN
+                   VarExpr i 
+                   NumExpr 1 
+         AssignExpr
+           VarExpr h 
+           BinaryExp DIV_TOKEN
+             VarExpr g 
+             NumExpr 3 
+         AssignExpr
+           VarExpr g 
+           BinaryExp TIMES_TOKEN
+             VarExpr h 
+             NumExpr 4 
+         AssignExpr
+           VarExpr c 
+           CallExpr addThem
+             VarExpr a 
+             VarExpr b 
+         CallExpr putchar
+           NumExpr 56 
+         CallExpr putchar
+           NumExpr 61 
+         CallExpr putchar
+           BinaryExp PLUS_TOKEN
+             VarExpr c 
+             VarExpr g 
+         CallExpr putchar
+           NumExpr 10 
+         AssignExpr
+           VarExpr i 
+           NumExpr 0 
+         IterationStmt 
+           BinaryExp LESS_THAN_TOKEN
+             VarExpr i 
+             NumExpr 10 
+           CmpStmt 
+             StmtList 
+               CallExpr putchar
+                 BinaryExp PLUS_TOKEN
+                   NumExpr 48 
+                   VarExpr i 
+               AssignExpr
+                 VarExpr i 
+                 BinaryExp PLUS_TOKEN
+                   VarExpr i 
+                   NumExpr 1 
+         CallExpr putchar
+           NumExpr 10 
+         CallExpr putchar
+           NumExpr 67 
+         CallExpr putchar
+           NumExpr 83 
+         CallExpr printInt
+           NumExpr 3510 
+         CallExpr putchar
+           NumExpr 10 
+         AssignExpr
+           VarExpr b 
+           NumExpr 0 
+         AssignExpr
+           VarExpr c 
+           NumExpr 1 
+         AssignExpr
+           VarExpr g 
+           NumExpr 1 
+         AssignExpr
+           VarExpr h 
+           NumExpr 0 
+         AssignExpr
+           VarExpr i 
+           NumExpr 0 
+         SelectionStmt 
+           BinaryExp EQUAL_TOKEN
+             VarExpr b 
+             NumExpr 0 
+           CmpStmt 
+             StmtList 
+               SelectionStmt 
+                 BinaryExp EQUAL_TOKEN
+                   VarExpr c 
+                   NumExpr 0 
+                 CmpStmt 
+                   StmtList 
+                     AssignExpr
+                       VarExpr i 
+                       NumExpr 1 
+                 SelectionStmt 
+                   BinaryExp EQUAL_TOKEN
+                     VarExpr g 
+                     NumExpr 0 
+                   CmpStmt 
+                     StmtList 
+                       AssignExpr
+                         VarExpr i 
+                         NumExpr 2 
+                   SelectionStmt 
+                     BinaryExp EQUAL_TOKEN
+                       VarExpr h 
+                       NumExpr 0 
+                     CmpStmt 
+                       StmtList 
+                         AssignExpr
+                           VarExpr i 
+                           NumExpr 10 
+                     CmpStmt 
+                       StmtList 
+                         AssignExpr
+                           VarExpr i 
+                           NumExpr 3 
+           CmpStmt 
+             StmtList 
+               AssignExpr
+                 VarExpr i 
+                 NumExpr 0 
+         SelectionStmt 
+           BinaryExp EQUAL_TOKEN
+             VarExpr i 
+             NumExpr 10 
+           CmpStmt 
+             StmtList 
+               CallExpr putchar
+                 NumExpr 99 
+               CallExpr putDigit
+                 NumExpr 0 
+               CallExpr putDigit
+                 NumExpr 0 
+               CallExpr putchar
+                 NumExpr 108 
+           CmpStmt 
+             StmtList 
+               CallExpr putchar
+                 NumExpr 98 
+               CallExpr putchar
+                 NumExpr 97 
+               CallExpr putchar
+                 NumExpr 100 
+               CallExpr putchar
+                 NumExpr 61 
+               CallExpr printInt
+                 VarExpr i 
+         CallExpr putchar
+           NumExpr 10 
+         ReturnStmt 
+           NumExpr 0 
+}
