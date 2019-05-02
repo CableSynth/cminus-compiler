@@ -13,7 +13,7 @@ class ExpressionStatement(private val expr: Expression? = null): Statement() {
     override fun print(spacing: String, fos: FileOutputStream) {
         expr?.print(spacing, fos)
     }
-    
+
     companion object {
         fun parse(): ExpressionStatement {
             return when (CMinusParser.scanner!!.viewNextToken().type) {

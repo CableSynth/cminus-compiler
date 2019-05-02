@@ -13,10 +13,13 @@ class Program {
         fun parse(): Program {
             val program = Program()
 
+            var declaration = Declaration.parse()
+            program.declList.add(declaration)
+
             while ( scanner!!.viewNextToken().type != Token.TokenType.EOF_TOKEN &&
                     scanner!!.viewNextToken().type != Token.TokenType.ERROR_TOKEN) {
 
-                val declaration = Declaration.parse()
+                declaration = Declaration.parse()
                 program.declList.add(declaration)
             }
             return program
