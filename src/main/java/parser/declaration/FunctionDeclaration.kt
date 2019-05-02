@@ -1,6 +1,7 @@
 package parser.declaration
 
 import compiler.misc.write
+import lowlevel.BasicBlock
 import parser.CMinusParser
 import parser.param.Param
 import parser.statement.CompoundStatement
@@ -9,6 +10,11 @@ import scanner.Token
 import scanner.advanceToken
 import scanner.matchToken
 import lowlevel.CodeItem
+import lowlevel.Data.TYPE_INT
+import lowlevel.Data.TYPE_VOID
+import lowlevel.FuncParam
+import lowlevel.Function
+import parser.statement.ReturnStatement
 import java.io.FileOutputStream
 
 class FunctionDeclaration(private var params: ArrayList<Param> = ArrayList(),
@@ -25,7 +31,32 @@ class FunctionDeclaration(private var params: ArrayList<Param> = ArrayList(),
     }
 
     override fun genLLCode(): CodeItem {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val returnType: Int = if ((compoundStatement as CompoundStatement).statementList.last() is ReturnStatement &&
+            ((compoundStatement as CompoundStatement).statementList.last() as ReturnStatement).expression != null) {
+            TYPE_INT
+        } else {
+            TYPE_VOID
+        }
+
+        val firstParam = params[0].genLLCode()
+        var currentParam = firstParam
+
+        var nextParam: FuncParam
+        for (param in 1 until params.size) {
+            nextParam = params[param].genLLCode()
+            currentParam.nextParam = nextParam
+            currentParam = nextParam
+        }
+
+        val function = Function(returnType, identifierName, firstParam)
+
+        function.currBlock = BasicBlock(function)
+
+//        compoundStatement.genLLCode()
+
+        function.lastBlock = function.returnBlock
+
+        return function
     }
 
     companion object {

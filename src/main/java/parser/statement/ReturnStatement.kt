@@ -8,7 +8,7 @@ import scanner.Token
 import scanner.matchToken
 import java.io.FileOutputStream
 
-class ReturnStatement(private var expression: Expression? = null) : Statement() {
+class ReturnStatement(var expression: Expression? = null) : Statement() {
     override fun genLLCode(): CodeItem? {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }

@@ -10,7 +10,7 @@ import scanner.matchToken
 import java.io.FileOutputStream
 
 class CompoundStatement(private var localDeclarations: ArrayList<Declaration> = ArrayList(),
-                        private var statementList: ArrayList<Statement> = ArrayList()) : Statement() {
+                        var statementList: ArrayList<Statement> = ArrayList()) : Statement() {
     override fun genLLCode(): CodeItem? {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }

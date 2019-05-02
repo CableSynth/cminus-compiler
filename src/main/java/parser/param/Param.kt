@@ -1,6 +1,9 @@
 package parser.param
 
 import compiler.misc.write
+import lowlevel.Data
+import lowlevel.Data.TYPE_INT
+import lowlevel.FuncParam
 import parser.CMinusParser
 import scanner.Token
 import scanner.advanceToken
@@ -31,6 +34,14 @@ class Param(var identifier: String = "", private var isArray: Boolean = false) {
             fos.write("$spacing Param $identifier\n")
         }else {
             fos.write("$spacing Param $identifier [ ]\n")
+        }
+    }
+
+    fun genLLCode(): FuncParam {
+        return if (identifier != "void") {
+            FuncParam(TYPE_INT, identifier, isArray)
+        } else {
+            FuncParam()
         }
     }
 }
