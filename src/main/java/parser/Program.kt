@@ -1,8 +1,10 @@
-package compiler.parser
+package parser
 
-import compiler.parser.CMinusParser.Companion.scanner
-import compiler.parser.declaration.Declaration
+import parser.CMinusParser.Companion.scanner
+import parser.declaration.Declaration
 import compiler.scanner.Token
+import lowlevel.CodeItem
+import lowlevel.Function
 import java.io.FileOutputStream
 
 class Program {
@@ -24,6 +26,10 @@ class Program {
             }
             return program
         }
+    }
+
+    fun genLLCode(): CodeItem {
+        return Function(1, "test")
     }
 
     fun print(spacing: String = "", fos: FileOutputStream) {

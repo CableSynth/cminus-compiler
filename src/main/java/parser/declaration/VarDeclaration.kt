@@ -1,6 +1,7 @@
-package compiler.parser.declaration
+package parser.declaration
 
 import compiler.misc.write
+import parser.declaration.Declaration
 import java.io.FileOutputStream
 
 class VarDeclaration(private var identifierName: String = "",

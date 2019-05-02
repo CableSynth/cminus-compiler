@@ -1,17 +1,18 @@
-package compiler.parser.declaration
+package parser.declaration
 
 import compiler.misc.write
-import compiler.parser.CMinusParser
-import compiler.parser.param.Param
-import compiler.parser.statement.CompoundStatement
-import compiler.parser.statement.Statement
+import parser.CMinusParser
+import parser.param.Param
+import parser.statement.CompoundStatement
+import parser.statement.Statement
 import compiler.scanner.Token
 import compiler.scanner.advanceToken
 import compiler.scanner.matchToken
 import java.io.FileOutputStream
 
 class FunctionDeclaration(private var params: ArrayList<Param> = ArrayList(),
-                          private var compoundStatement: Statement) : Declaration() {
+                          private var compoundStatement: Statement
+) : Declaration() {
 
     var identifierName: String? = null
 
@@ -25,7 +26,7 @@ class FunctionDeclaration(private var params: ArrayList<Param> = ArrayList(),
     }
 
     companion object {
-        fun parse(): FunctionDeclaration{
+        fun parse(): FunctionDeclaration {
             val params = ArrayList<Param>()
             if(CMinusParser.scanner!!.viewNextToken().type != Token.TokenType.VOID_TOKEN){
                 while (CMinusParser.scanner!!.viewNextToken().type != Token.TokenType.RPAREN_TOKEN){

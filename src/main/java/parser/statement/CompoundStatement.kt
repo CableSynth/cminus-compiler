@@ -1,8 +1,8 @@
-package compiler.parser.statement
+package parser.statement
 
 import compiler.misc.write
-import compiler.parser.CMinusParser
-import compiler.parser.declaration.Declaration
+import parser.CMinusParser
+import parser.declaration.Declaration
 import compiler.scanner.Token
 import compiler.scanner.advanceToken
 import compiler.scanner.matchToken

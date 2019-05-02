@@ -1,4 +1,4 @@
-package compiler.parser.expression
+package parser.expression
 
 import compiler.misc.write
 import compiler.scanner.advanceToken

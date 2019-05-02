@@ -1,4 +1,4 @@
-gitProgram {
+Program {
    VarDecl a 
    FunDecl addThem 
      Param d

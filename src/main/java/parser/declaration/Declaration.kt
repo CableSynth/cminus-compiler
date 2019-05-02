@@ -1,6 +1,6 @@
-package compiler.parser.declaration
+package parser.declaration
 
-import compiler.parser.CMinusParser.Companion.scanner
+import parser.CMinusParser.Companion.scanner
 import compiler.scanner.Token
 import compiler.scanner.advanceToken
 import compiler.scanner.matchToken

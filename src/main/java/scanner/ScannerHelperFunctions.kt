@@ -1,6 +1,6 @@
 package compiler.scanner
 
-import compiler.parser.CMinusParser
+import parser.CMinusParser
 
 fun advanceToken(): Token {
     return CMinusParser.scanner!!.getNextToken()

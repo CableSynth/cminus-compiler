@@ -1,12 +1,6 @@
-package compiler
+import java.io.*
 
-import compiler.parser.CMinusParser
-
-object Compiler {
-    @JvmStatic fun main(args: Array<String>) {
-        val fileName = "test/expression.c"
-        val parse = CMinusParser(fileName)
-        val program = parse.parse()
-        parse.printAst(program)
-    }
+interface Compiler {
+    @Throws(IOException::class)
+    fun compile(filePrefix: String)
 }

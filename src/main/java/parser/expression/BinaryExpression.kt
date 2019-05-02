@@ -1,4 +1,4 @@
-package compiler.parser.expression
+package parser.expression
 
 import compiler.misc.write
 import compiler.scanner.Token
@@ -6,7 +6,6 @@ import compiler.scanner.advanceToken
 import compiler.scanner.matchToken
 import compiler.scanner.viewNextToken
 import java.io.FileOutputStream
-import kotlin.math.exp
 
 class BinaryExpression(
     val binopToken: Token.TokenType? = null, var leftExpression: Expression? = null,

@@ -1,9 +1,8 @@
-package compiler.parser.expression
+package parser.expression
 
-import compiler.parser.CMinusParser
+import parser.CMinusParser
 import compiler.scanner.Token
 import compiler.scanner.advanceToken
-import compiler.scanner.viewNextToken
 import java.io.FileOutputStream
 
 abstract class Expression {

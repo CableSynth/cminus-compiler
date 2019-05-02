@@ -1,7 +1,7 @@
-package compiler.parser.param
+package parser.param
 
 import compiler.misc.write
-import compiler.parser.CMinusParser
+import parser.CMinusParser
 import compiler.scanner.Token
 import compiler.scanner.advanceToken
 import compiler.scanner.matchToken

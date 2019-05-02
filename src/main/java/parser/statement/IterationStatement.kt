@@ -1,7 +1,7 @@
-package compiler.parser.statement
+package parser.statement
 
 import compiler.misc.write
-import compiler.parser.expression.Expression
+import parser.expression.Expression
 import compiler.scanner.Token
 import compiler.scanner.advanceToken
 import compiler.scanner.matchToken
