@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe78faeb-a280-46fd-9a7d-0e44580ca7ea" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/parser/declaration/FunctionDeclaration.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/parser/declaration/FunctionDeclaration.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/parser/param/Param.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/parser/param/Param.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/parser/statement/CompoundStatement.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/parser/statement/CompoundStatement.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/parser/statement/ReturnStatement.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/parser/statement/ReturnStatement.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/small.c" beforeDir="false" afterPath="$PROJECT_DIR$/test/small.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/small.c.output" beforeDir="false" afterPath="$PROJECT_DIR$/test/small.c.output" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/small.ll" beforeDir="false" afterPath="$PROJECT_DIR$/test/small.ll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/small.opti" beforeDir="false" afterPath="$PROJECT_DIR$/test/small.opti" afterDir="false" />
-    </list>
+    <list default="true" id="fe78faeb-a280-46fd-9a7d-0e44580ca7ea" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -45,11 +25,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.7520635">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/test/small.ll">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="145">
-                  <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+                  <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="28" />
                 </state>
               </provider>
             </entry>
@@ -57,13 +37,13 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/parser/declaration/FunctionDeclaration.kt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="275">
-                  <caret line="40" column="36" lean-forward="true" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
+                <state relative-caret-position="130">
+                  <caret line="35" column="20" lean-forward="true" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/parser/param/Param.kt">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="594">
@@ -248,9 +228,9 @@
         <option value="$PROJECT_DIR$/src/main/java/parser/statement/CompoundStatement.kt" />
         <option value="$PROJECT_DIR$/src/main/java/parser/statement/ReturnStatement.kt" />
         <option value="$PROJECT_DIR$/src/main/java/parser/declaration/VarDeclaration.kt" />
-        <option value="$PROJECT_DIR$/test/small.c" />
         <option value="$PROJECT_DIR$/src/main/java/parser/declaration/FunctionDeclaration.kt" />
         <option value="$PROJECT_DIR$/src/main/java/parser/param/Param.kt" />
+        <option value="$PROJECT_DIR$/test/small.c" />
       </list>
     </option>
   </component>
@@ -498,9 +478,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="39" width="3240" height="2121" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25777778" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25777778" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -510,11 +489,11 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3295207" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.39978212" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39978212" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3295207" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3295207" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3295207" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.3295207" />
@@ -914,13 +893,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/small.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lowlevel/Function.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -943,20 +915,6 @@
     <entry file="file://$PROJECT_DIR$/test/small.c.output">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/small.ll">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/parser/declaration/FunctionDeclaration.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="40" column="36" lean-forward="true" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/parser/param/Param.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
@@ -964,6 +922,27 @@
           <folding>
             <element signature="e#22#259#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/parser/declaration/FunctionDeclaration.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="35" column="20" lean-forward="true" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/small.ll">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/small.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
         </state>
       </provider>
     </entry>

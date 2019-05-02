@@ -3,3 +3,10 @@
 (DATA  c)
 (DATA  d)
 (DATA  e)
+(FUNCTION  main  []
+  (BB 2
+  )
+  (BB 4
+    (OPER 5 Return []  [(m EAX)])
+  )
+)

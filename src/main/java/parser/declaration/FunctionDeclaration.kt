@@ -43,18 +43,19 @@ class FunctionDeclaration(private var params: ArrayList<Param> = ArrayList(),
 
         var nextParam: FuncParam
         for (param in 1 until params.size) {
-            nextParam = params[param].genLLCode()
-            currentParam.nextParam = nextParam
+            nextParam = params[param].genLLCode()!!
+            currentParam!!.nextParam = nextParam
             currentParam = nextParam
         }
 
         val function = Function(returnType, identifierName, firstParam)
 
-        function.currBlock = BasicBlock(function)
+        function.createBlock0()
+        function.appendBlock(BasicBlock(function))
 
 //        compoundStatement.genLLCode()
 
-        function.lastBlock = function.returnBlock
+        function.appendBlock(function.genReturnBlock())
 
         return function
     }

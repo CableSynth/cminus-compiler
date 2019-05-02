@@ -37,11 +37,11 @@ class Param(var identifier: String = "", private var isArray: Boolean = false) {
         }
     }
 
-    fun genLLCode(): FuncParam {
+    fun genLLCode(): FuncParam? {
         return if (identifier != "void") {
             FuncParam(TYPE_INT, identifier, isArray)
         } else {
-            FuncParam()
+            null
         }
     }
 }
