@@ -2,9 +2,9 @@ package parser.param
 
 import compiler.misc.write
 import parser.CMinusParser
-import compiler.scanner.Token
-import compiler.scanner.advanceToken
-import compiler.scanner.matchToken
+import scanner.Token
+import scanner.advanceToken
+import scanner.matchToken
 import java.io.FileOutputStream
 
 class Param(var identifier: String = "", private var isArray: Boolean = false) {

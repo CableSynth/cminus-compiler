@@ -1,2 +1,5 @@
-(FUNCTION  test  []
-)
+(DATA  a)
+(DATA  b)
+(DATA  c)
+(DATA  d)
+(DATA  e)

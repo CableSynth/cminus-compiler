@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package compiler.scanner
+package scanner
 
 class Token(var type: TokenType = TokenType.ERROR_TOKEN, var data: Any? = null) {
 

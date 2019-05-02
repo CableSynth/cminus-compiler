@@ -1,16 +1,18 @@
 package parser.expression
 
 import compiler.misc.write
-import compiler.scanner.Token
-import compiler.scanner.advanceToken
-import compiler.scanner.matchToken
-import compiler.scanner.viewNextToken
+import lowlevel.CodeItem
+import scanner.Token
+import scanner.advanceToken
+import scanner.matchToken
+import scanner.viewNextToken
 import java.io.FileOutputStream
 
-class BinaryExpression(
-    val binopToken: Token.TokenType? = null, var leftExpression: Expression? = null,
-    var rightExpression: Expression? = null
-) : Expression() {
+class BinaryExpression(val binopToken: Token.TokenType? = null, var leftExpression: Expression? = null,
+                       var rightExpression: Expression? = null) : Expression() {
+    override fun genLLCode(): CodeItem {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     override fun print(spacing: String, fos: FileOutputStream) {
         fos.write("$spacing BinaryExp $binopToken\n")

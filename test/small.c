@@ -4,7 +4,7 @@ int c;
 int d;
 int e;
 
-void main(void) {
+/* void main(void) {
     a = 1;
     b = 2;
     c = 3;
@@ -18,4 +18,4 @@ void fun(void) {
 
 void test(int array[]) {
 
-}
+} */

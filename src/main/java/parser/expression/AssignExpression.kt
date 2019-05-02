@@ -1,10 +1,15 @@
 package parser.expression
 
 import compiler.misc.write
-import compiler.scanner.advanceToken
+import lowlevel.CodeItem
+import scanner.advanceToken
 import java.io.FileOutputStream
 
 class AssignExpression(var varExpression: VarExpression? = null, private val expression: Expression): Expression() {
+    override fun genLLCode(): CodeItem {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     override fun print(spacing: String, fos: FileOutputStream) {
         fos.write("$spacing AssignExpr\n")
         varExpression!!.print("$spacing  ", fos)

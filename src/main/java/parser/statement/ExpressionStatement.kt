@@ -3,14 +3,19 @@ package parser.statement
 import parser.CMinusParser
 import parser.expression.BinaryExpression
 import parser.expression.Expression
-import compiler.scanner.Token
-import compiler.scanner.advanceToken
-import compiler.scanner.matchToken
+import scanner.Token
+import scanner.advanceToken
+import scanner.matchToken
+import lowlevel.CodeItem
 import java.io.FileOutputStream
 
 class ExpressionStatement(private val expr: Expression? = null): Statement() {
     override fun print(spacing: String, fos: FileOutputStream) {
         expr?.print(spacing, fos)
+    }
+
+    override fun genLLCode(): CodeItem? {
+        return expr?.genLLCode()
     }
 
     companion object {

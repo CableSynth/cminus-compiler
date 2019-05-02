@@ -1,13 +1,18 @@
 package parser.statement
 
 import compiler.misc.write
+import lowlevel.CodeItem
 import parser.CMinusParser
 import parser.expression.Expression
-import compiler.scanner.Token
-import compiler.scanner.matchToken
+import scanner.Token
+import scanner.matchToken
 import java.io.FileOutputStream
 
 class ReturnStatement(private var expression: Expression? = null) : Statement() {
+    override fun genLLCode(): CodeItem? {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     override fun print(spacing: String, fos: FileOutputStream) {
         fos.write("$spacing ReturnStmt \n")
         expression?.print("$spacing  ", fos)

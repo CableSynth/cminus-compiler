@@ -1,15 +1,19 @@
 package parser.statement
 
 import compiler.misc.write
+import lowlevel.CodeItem
 import parser.CMinusParser
 import parser.expression.Expression
-import compiler.scanner.Token
-import compiler.scanner.advanceToken
-import compiler.scanner.matchToken
+import scanner.Token
+import scanner.advanceToken
+import scanner.matchToken
 import java.io.FileOutputStream
 
 class SelectionStatement(private var expression : Expression, private var thenStatement : Statement? = null, private var elseStatement: Statement? = null) :
     Statement() {
+    override fun genLLCode(): CodeItem? {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     override fun print(spacing: String, fos: FileOutputStream) {
         fos.write("$spacing SelectionStmt \n")

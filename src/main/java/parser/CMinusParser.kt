@@ -1,10 +1,8 @@
 package parser
 
-import compiler.scanner.CMinusScanner
-import compiler.scanner.Scanner
-import compiler.scanner.ScannerMain
-import lowlevel.CodeItem
-import lowlevel.Function
+import scanner.Scanner
+import scanner.CMinusScanner
+import scanner.ScannerMain
 import java.io.*
 import java.util.logging.Level
 import java.util.logging.Logger

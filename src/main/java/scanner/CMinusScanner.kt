@@ -1,6 +1,6 @@
-package compiler.scanner
+package scanner
 
-import compiler.scanner.Token.TokenType
+import scanner.Token.TokenType
 import java.io.BufferedReader
 import java.io.IOException
 
@@ -40,7 +40,7 @@ class CMinusScanner(private val inFile: BufferedReader) : Scanner {
             val nextChar = inFile.read()
 
             when (state) {
-                CMinusScanner.StateType.START ->
+                StateType.START ->
                     if (Character.isDigit(nextChar)) {
                         state = StateType.INNUM
                         save = true
@@ -121,7 +121,7 @@ class CMinusScanner(private val inFile: BufferedReader) : Scanner {
                             else -> state = StateType.DONE
                         }
                     }
-                CMinusScanner.StateType.CHECKSTARTCOMMENT ->
+                StateType.CHECKSTARTCOMMENT ->
                     if (nextChar == '*'.toInt()) {
                         save = false
                         tokenBuilder = ""
@@ -134,7 +134,7 @@ class CMinusScanner(private val inFile: BufferedReader) : Scanner {
                         currentToken.type = TokenType.DIV_TOKEN
                         state = StateType.DONE
                     }
-                CMinusScanner.StateType.INCOMMENT -> {
+                StateType.INCOMMENT -> {
                     save = false
                     if (nextChar == -1) {
                         state = StateType.DONE
@@ -146,13 +146,13 @@ class CMinusScanner(private val inFile: BufferedReader) : Scanner {
                         lineNumber++
                     }
                 }
-                CMinusScanner.StateType.CHECKENDCOMMENT ->
+                StateType.CHECKENDCOMMENT ->
                     if (nextChar == '/'.toInt()) {
                         state = StateType.START
                         tokenBuilder = ""
                         currentToken = Token()
                     }
-                CMinusScanner.StateType.INOP ->
+                StateType.INOP ->
                     if (nextChar != '='.toInt()) {
                         inFile.reset()
                         save = false
@@ -166,7 +166,7 @@ class CMinusScanner(private val inFile: BufferedReader) : Scanner {
                             else -> currentToken.type = TokenType.NOT_EQUAL_TOKEN
                         }
                     }
-                CMinusScanner.StateType.INNUM ->
+                StateType.INNUM ->
                     if (!Character.isDigit(nextChar) && !Character.isAlphabetic(nextChar)) {
                         inFile.reset()
                         save = false
@@ -177,7 +177,7 @@ class CMinusScanner(private val inFile: BufferedReader) : Scanner {
                         state = StateType.DONE
                         currentToken.type = TokenType.ERROR_TOKEN
                     }
-                CMinusScanner.StateType.INID ->
+                StateType.INID ->
                     if (!Character.isAlphabetic(nextChar)) {
                         save = false
                         state = StateType.DONE
@@ -193,7 +193,7 @@ class CMinusScanner(private val inFile: BufferedReader) : Scanner {
                             currentToken.type = TokenType.ID_TOKEN
                         }
                     }
-                CMinusScanner.StateType.DONE -> {
+                StateType.DONE -> {
                     //print error state
                     System.err.println("Scanner error state: $state")
                     state = StateType.DONE

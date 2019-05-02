@@ -5,15 +5,14 @@ import parser.CMinusParser
 import parser.param.Param
 import parser.statement.CompoundStatement
 import parser.statement.Statement
-import compiler.scanner.Token
-import compiler.scanner.advanceToken
-import compiler.scanner.matchToken
+import scanner.Token
+import scanner.advanceToken
+import scanner.matchToken
+import lowlevel.CodeItem
 import java.io.FileOutputStream
 
 class FunctionDeclaration(private var params: ArrayList<Param> = ArrayList(),
-                          private var compoundStatement: Statement
-) : Declaration() {
-
+                          private var compoundStatement: Statement) : Declaration() {
     var identifierName: String? = null
 
     override fun print(spacing: String, fos: FileOutputStream) {
@@ -23,6 +22,10 @@ class FunctionDeclaration(private var params: ArrayList<Param> = ArrayList(),
         }
 
         compoundStatement.print("$spacing  ", fos)
+    }
+
+    override fun genLLCode(): CodeItem {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     companion object {

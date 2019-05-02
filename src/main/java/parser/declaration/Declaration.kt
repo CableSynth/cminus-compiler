@@ -1,13 +1,16 @@
 package parser.declaration
 
 import parser.CMinusParser.Companion.scanner
-import compiler.scanner.Token
-import compiler.scanner.advanceToken
-import compiler.scanner.matchToken
+import scanner.Token
+import lowlevel.CodeItem
+import scanner.advanceToken
+import scanner.matchToken
 import java.io.FileOutputStream
 
 abstract class Declaration {
     abstract fun print(spacing: String, fos: FileOutputStream)
+
+    abstract fun genLLCode(): CodeItem
 
     companion object {
         fun parse(): Declaration {

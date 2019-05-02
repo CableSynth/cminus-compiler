@@ -1,10 +1,9 @@
 package parser
 
+import scanner.Token
 import parser.CMinusParser.Companion.scanner
 import parser.declaration.Declaration
-import compiler.scanner.Token
 import lowlevel.CodeItem
-import lowlevel.Function
 import java.io.FileOutputStream
 
 class Program {
@@ -29,7 +28,17 @@ class Program {
     }
 
     fun genLLCode(): CodeItem {
-        return Function(1, "test")
+        val codeItem: CodeItem = declList[0].genLLCode()
+        var currentItem = codeItem
+
+        var nextItem: CodeItem
+        for (item in 1 until declList.size) {
+            nextItem = declList[item].genLLCode()
+            currentItem.nextItem = nextItem
+            currentItem = nextItem
+        }
+
+        return codeItem
     }
 
     fun print(spacing: String = "", fos: FileOutputStream) {

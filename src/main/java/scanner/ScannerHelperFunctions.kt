@@ -1,4 +1,4 @@
-package compiler.scanner
+package scanner
 
 import parser.CMinusParser
 

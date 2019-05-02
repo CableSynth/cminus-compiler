@@ -1,6 +1,6 @@
-package compiler.scanner
+package scanner
 
-import compiler.scanner.Token.TokenType
+import scanner.Token.TokenType
 import java.io.*
 import java.util.logging.Level
 import java.util.logging.Logger
@@ -21,9 +21,9 @@ object ScannerMain {
         if (inputFile != null) {
             val inFile = BufferedReader(InputStreamReader(inputFile))
             val testScanner = CMinusScanner(inFile)
-            var token = testScanner.viewNextToken()
+            var token = viewNextToken()
 
-            while (token.type != TokenType.EOF_TOKEN) {
+            while (token.type != Token.TokenType.EOF_TOKEN) {
                 token = testScanner.getNextToken()
 
                 try {

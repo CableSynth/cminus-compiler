@@ -1,12 +1,15 @@
 package parser.expression
 
 import parser.CMinusParser
-import compiler.scanner.Token
-import compiler.scanner.advanceToken
+import scanner.Token
+import scanner.advanceToken
+import lowlevel.CodeItem
 import java.io.FileOutputStream
 
 abstract class Expression {
     abstract fun print(spacing: String, fos: FileOutputStream)
+
+    abstract fun genLLCode(): CodeItem
 
     companion object {
         fun parse(): Expression {
