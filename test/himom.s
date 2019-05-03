@@ -41,6 +41,10 @@ printInt_bb4:
 	movl	$1, %EAX
 	movl	%EAX, %EDI
 	call	putDigit
+printInt_bb19:
+	popq	%R15
+	popq	%R14
+	ret
 printInt_bb7:
 	movl	$1000, %EDI
 	movl	$0, %EDX
@@ -79,28 +83,51 @@ printInt_bb10:
 	movl	$10, %EAX
 	cmpl	%EAX, %R15D
 	jl	printInt_bb16
+	jmp	printInt_bb14
 printInt_bb12:
 	movl	$0, %EAX
 	movl	%EAX, %EDI
 	call	putDigit
 printInt_bb13:
 	jmp	printInt_bb10
-printInt_bb15:
-	movl	%R15D, %EDI
-	call	putDigit
-	jmp	printInt_bb7
 printInt_bb11:
 	movl	$1, %EAX
 	cmpl	%EAX, %R14D
 	jne	printInt_bb10
+	jmp	printInt_bb12
+printInt_bb14:
+	movl	$10, %EDI
+	movl	$0, %EDX
+	movl	%R15D, %EAX
+	idivl	%EDI, %EAX
+	movl	%EAX, %R14D
+	movl	%R14D, %EDI
+	call	putDigit
+	movl	$10, %EDI
+	movl	%R14D, %EAX
+	imull	%EDI, %EAX
+	subl	%R15D, %EAX
+	movl	%EAX, %R15D
+printInt_bb15:
+	movl	%R15D, %EDI
+	call	putDigit
+	jmp	printInt_bb19
+printInt_bb17:
+	movl	$0, %EAX
+	movl	%EAX, %EDI
+	call	putDigit
+printInt_bb18:
+	jmp	printInt_bb15
 printInt_bb16:
 	movl	$1, %EAX
 	cmpl	%EAX, %R14D
 	jne	printInt_bb15
+	jmp	printInt_bb17
 printInt_bb6:
 	movl	$1000, %EAX
 	cmpl	%EAX, %R15D
 	jl	printInt_bb8
+	jmp	printInt_bb7
 .globl  main
 main:
 main_bb2:
@@ -213,10 +240,7 @@ main_bb11:
 	jne	main_bb16
 main_bb14:
 	movl	$1, %EAX
-main_bb17:
-	movl	$2, %EAX
-main_bb18:
-	jmp	main_bb17
+	movl	%EAX, %R15D
 main_bb12:
 	movl	$10, %EAX
 	cmpl	%EAX, %R15D
@@ -247,17 +271,30 @@ main_bb6:
 	movl	$4, %EAX
 	movl	%EAX, a(%RIP)
 	jmp	main_bb5
+main_bb17:
+	movl	$2, %EAX
+	movl	%EAX, %R15D
+main_bb18:
+	jmp	main_bb12
+main_bb20:
+	movl	$10, %EAX
+	movl	%EAX, %R15D
+main_bb21:
+	jmp	main_bb12
 main_bb22:
 	movl	$3, %EAX
-	jmp	main_bb17
+	movl	%EAX, %R15D
+	jmp	main_bb12
 main_bb19:
 	movl	$0, %EAX
 	cmpl	%EAX, %EDX
 	jne	main_bb22
+	jmp	main_bb20
 main_bb16:
 	movl	$0, %EAX
 	cmpl	%EAX, %R14D
 	jne	main_bb19
+	jmp	main_bb17
 main_bb13:
 	movl	$0, %EAX
 	movl	%EAX, %R15D

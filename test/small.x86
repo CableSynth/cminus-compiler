@@ -1,31 +1,57 @@
-(DATA  a)
 (FUNCTION  main  []
   (BB 2
   )
   (BB 3
-    (OPER 4 Load [(r 1)]  [(s a)(i 0)])
-    (OPER 5 Mov [(r 2)]  [(i 2)])
-    (OPER 6 Mov [(r 1)]  [(r 2)])
-    (OPER 7 Store []  [(r 1)(s a)(i 0)])
-    (OPER 8 Mov [(r 3)]  [(i 1)])
-    (OPER 15 Mov [(m EDI)]  [(r 3)])
-    (OPER 10 JSR []  [(s test)(m EDI)] [(numParams 1)])
-    (OPER 11 Mov [(r 4)]  [(m EAX)])
-    (OPER 12 Mov [(m EAX)]  [(r 4)])
+    (OPER 4 Mov [(r 2)]  [(i 2)])
+    (OPER 5 Mov [(r 1)]  [(r 2)])
+    (OPER 6 Mov [(r 4)]  [(i 2)])
+    (OPER 34 Cmp [(m Flags)]  [(r 1)(r 4)])
+    (OPER 35 BLE []  [(bb 6)(m Flags)])
   )
   (BB 4
-    (OPER 14 Return []  [(m EAX)])
+    (OPER 9 Mov [(r 6)]  [(i 7)])
+    (OPER 10 Mov [(r 1)]  [(r 6)])
   )
-)
-(FUNCTION  test  [(int t)]
-  (BB 2
-    (OPER 8 Mov [(r 1)]  [(m EDI)])
+  (BB 5
+    (OPER 18 Mov [(r 12)]  [(i 2)])
+    (OPER 36 Cmp [(m Flags)]  [(r 1)(r 12)])
+    (OPER 37 BNE []  [(bb 11)(m Flags)])
   )
-  (BB 3
-    (OPER 4 Mov [(r 2)]  [(i 1)])
-    (OPER 5 Mov [(m EAX)]  [(r 2)])
+  (BB 9
+    (OPER 21 Mov [(r 14)]  [(i 9)])
+    (OPER 22 Mov [(r 1)]  [(r 14)])
   )
-  (BB 4
-    (OPER 7 Return []  [(m EAX)])
+  (BB 10
+    (OPER 30 Mov [(r 19)]  [(i 7)])
+    (OPER 31 Mov [(r 1)]  [(r 19)])
+  )
+  (BB 14
+    (OPER 33 Return []  [(m EAX)])
+  )
+  (BB 7
+    (OPER 15 Mov [(r 10)]  [(i 8)])
+    (OPER 16 Mov [(r 1)]  [(r 10)])
+  )
+  (BB 8
+    (OPER 17 Jmp []  [(bb 5)])
+  )
+  (BB 6
+    (OPER 11 Mov [(r 8)]  [(i 1)])
+    (OPER 38 Cmp [(m Flags)]  [(r 1)(r 8)])
+    (OPER 39 BNE []  [(bb 5)(m Flags)])
+    (OPER 14 Jmp []  [(bb 7)])
+  )
+  (BB 12
+    (OPER 27 Mov [(r 18)]  [(i 10)])
+    (OPER 28 Mov [(r 1)]  [(r 18)])
+  )
+  (BB 13
+    (OPER 29 Jmp []  [(bb 10)])
+  )
+  (BB 11
+    (OPER 23 Mov [(r 16)]  [(i 1)])
+    (OPER 40 Cmp [(m Flags)]  [(r 1)(r 16)])
+    (OPER 41 BLE []  [(bb 10)(m Flags)])
+    (OPER 26 Jmp []  [(bb 12)])
   )
 )
