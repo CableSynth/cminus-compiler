@@ -7,30 +7,6 @@ Program {
    FunDecl main 
      Param void
      CmpStmt 
-       StmtList 
-         AssignExpr
-           VarExpr a 
-           NumExpr 1 
-         AssignExpr
-           VarExpr b 
-           NumExpr 2 
-         AssignExpr
-           VarExpr c 
-           NumExpr 3 
-         AssignExpr
-           VarExpr d 
-           BinaryExp TIMES_TOKEN
-             BinaryExp PLUS_TOKEN
-               VarExpr a 
-               VarExpr b 
-             VarExpr c 
-         AssignExpr
-           VarExpr e 
-           BinaryExp PLUS_TOKEN
-             BinaryExp TIMES_TOKEN
-               BinaryExp PLUS_TOKEN
-                 VarExpr a 
-                 VarExpr b 
-               VarExpr c 
-             NumExpr 4 
+       LocalDecls 
+         VarDecl x 
 }

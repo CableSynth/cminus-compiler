@@ -11,9 +11,6 @@ import java.io.FileOutputStream
 
 class CompoundStatement(private var localDeclarations: ArrayList<Declaration> = ArrayList(),
                         var statementList: ArrayList<Statement> = ArrayList()) : Statement() {
-    override fun genLLCode(): CodeItem? {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
 
     override fun print(spacing: String, fos: FileOutputStream) {
         fos.write("$spacing CmpStmt \n")
@@ -31,6 +28,39 @@ class CompoundStatement(private var localDeclarations: ArrayList<Declaration> = 
                 statement.print("$spacing    ", fos)
             }
         }
+    }
+
+    override fun genLLCode(): CodeItem? {
+
+        var declItem: CodeItem? = null
+        val statmentItem: CodeItem
+
+        if (localDeclarations.isNotEmpty()) {
+//            val symbolTable
+            declItem = localDeclarations[0].genLLCode()
+            var currentItem = declItem
+
+            var nextItem: CodeItem
+            for (item in 1 until localDeclarations.size) {
+                nextItem = localDeclarations[item].genLLCode()
+                currentItem!!.nextItem = nextItem
+                currentItem = nextItem
+            }
+        }
+
+//        if(statementList.isNotEmpty()){
+//            statmentItem = statementList[0].genLLCode()!!
+//            var currentItem = statmentItem
+//
+//            var nextItem: CodeItem
+//            for (item in 1 until statementList.size) {
+//                nextItem = statementList[item].genLLCode()!!
+//                currentItem.nextItem = nextItem
+//                currentItem = nextItem
+//            }
+//        }
+
+        return declItem
     }
 
     companion object {

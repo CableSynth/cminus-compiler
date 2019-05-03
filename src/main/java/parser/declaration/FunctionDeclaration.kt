@@ -31,13 +31,6 @@ class FunctionDeclaration(private var params: ArrayList<Param> = ArrayList(),
     }
 
     override fun genLLCode(): CodeItem {
-        val returnType: Int = if ((compoundStatement as CompoundStatement).statementList.last() is ReturnStatement &&
-            ((compoundStatement as CompoundStatement).statementList.last() as ReturnStatement).expression != null) {
-            TYPE_INT
-        } else {
-            TYPE_VOID
-        }
-
         val firstParam = params[0].genLLCode()
         var currentParam = firstParam
 
@@ -48,12 +41,22 @@ class FunctionDeclaration(private var params: ArrayList<Param> = ArrayList(),
             currentParam = nextParam
         }
 
+        val returnType: Int = if ((compoundStatement as CompoundStatement).statementList.isNotEmpty() &&
+            (compoundStatement as CompoundStatement).statementList.last() is ReturnStatement &&
+            ((compoundStatement as CompoundStatement).statementList.last() as ReturnStatement).expression != null) {
+            TYPE_INT
+        } else {
+            TYPE_VOID
+        }
+
         val function = Function(returnType, identifierName, firstParam)
 
         function.createBlock0()
         function.appendBlock(BasicBlock(function))
 
-//        compoundStatement.genLLCode()
+        val codeItem = compoundStatement.genLLCode()
+
+
 
         function.appendBlock(function.genReturnBlock())
 
