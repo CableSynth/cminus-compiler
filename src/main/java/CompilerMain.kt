@@ -1,6 +1,6 @@
 object CompilerMain {
     @JvmStatic fun main(args: Array<String>) {
-        val fileName = "test/small"
+        val fileName = "test/himom"
 
 //        val parse = CMinusParser(fileName)
 //        val program = parse.parse()

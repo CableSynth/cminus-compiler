@@ -10,6 +10,8 @@ import scanner.advanceToken
 import scanner.matchToken
 import java.io.FileOutputStream
 
+var isUnConnected = false
+
 class SelectionStatement(private var expression : Expression, private var thenStatement : Statement? = null, private var elseStatement: Statement? = null) :
     Statement() {
     override fun genLLCode(function: Function) {
@@ -32,25 +34,58 @@ class SelectionStatement(private var expression : Expression, private var thenSt
         oper.setSrcOperand(2, srcOperand3)
 
         function.currBlock.appendOper(oper)
-        function.appendBlock(thenBlk)
+        if (!isUnConnected) {
+            function.appendBlock(thenBlk)
+        } else {
+            function.appendUnconnectedBlock(thenBlk)
+
+            val srcOperand = Operand(Operand.OperandType.BLOCK, thenBlk.blockNum)
+
+            val thenOper = Operation(Operation.OperationType.JMP, function.currBlock)
+            thenOper.setSrcOperand(0, srcOperand)
+
+            function.currBlock.appendOper(thenOper)
+        }
         function.currBlock = thenBlk
 
         thenStatement!!.genLLCode(function)
 
-        function.appendBlock(postBlk)
+
+        if (!isUnConnected) {
+            function.appendBlock(postBlk)
+        } else {
+            function.appendUnconnectedBlock(postBlk)
+        }
 
         if (elseBlk != null) {
-            function.currBlock = elseBlk
-            elseStatement!!.genLLCode(function)
+            if (isUnConnected == false) {
+                isUnConnected = true
+                function.currBlock = elseBlk
+                elseStatement!!.genLLCode(function)
 
-            val srcOperand = Operand(Operand.OperandType.BLOCK, postBlk.blockNum)
+                val srcOperand = Operand(Operand.OperandType.BLOCK, postBlk.blockNum)
 
-            val elseOper = Operation(Operation.OperationType.JMP, function.currBlock)
-            elseOper.setSrcOperand(0, srcOperand)
+                val elseOper = Operation(Operation.OperationType.JMP, function.currBlock)
+                elseOper.setSrcOperand(0, srcOperand)
 
-            function.currBlock.appendOper(elseOper)
+                function.currBlock.appendOper(elseOper)
 
-            function.appendUnconnectedBlock(elseBlk)
+                function.appendUnconnectedBlock(elseBlk)
+                isUnConnected = false
+            } else {
+                isUnConnected = true
+                function.currBlock = elseBlk
+                elseStatement!!.genLLCode(function)
+
+                val srcOperand = Operand(Operand.OperandType.BLOCK, postBlk.blockNum)
+
+                val elseOper = Operation(Operation.OperationType.JMP, function.currBlock)
+                elseOper.setSrcOperand(0, srcOperand)
+
+                function.currBlock.appendOper(elseOper)
+
+                function.appendUnconnectedBlock(elseBlk)
+            }
         }
 
         function.currBlock = postBlk

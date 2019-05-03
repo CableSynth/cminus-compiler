@@ -29,7 +29,11 @@ class IterationStatement(private val expression: Expression, private val stateme
         oper.setSrcOperand(2, srcOperand3)
 
         function.currBlock.appendOper(oper)
-        function.appendBlock(thenBlk)
+        if (!isUnConnected) {
+            function.appendBlock(thenBlk)
+        } else {
+            function.appendUnconnectedBlock(thenBlk)
+        }
         function.currBlock = thenBlk
 
         statement.genLLCode(function)
@@ -47,7 +51,11 @@ class IterationStatement(private val expression: Expression, private val stateme
 
         function.currBlock.appendOper(oper2)
 
-        function.appendBlock(postBlk)
+        if (!isUnConnected) {
+            function.appendBlock(postBlk)
+        } else {
+            function.appendUnconnectedBlock(postBlk)
+        }
         function.currBlock = postBlk
     }
 
