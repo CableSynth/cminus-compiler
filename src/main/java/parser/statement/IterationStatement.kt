@@ -2,6 +2,7 @@ package parser.statement
 
 import compiler.misc.write
 import lowlevel.CodeItem
+import lowlevel.Function
 import parser.expression.Expression
 import scanner.Token
 import scanner.advanceToken
@@ -9,7 +10,7 @@ import scanner.matchToken
 import java.io.FileOutputStream
 
 class IterationStatement(private val expression: Expression, private val statement: Statement) : Statement() {
-    override fun genLLCode(): CodeItem? {
+    override fun genLLCode(function: Function): CodeItem? {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

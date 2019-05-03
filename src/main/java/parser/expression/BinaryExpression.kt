@@ -2,6 +2,7 @@ package parser.expression
 
 import compiler.misc.write
 import lowlevel.CodeItem
+import lowlevel.Function
 import scanner.Token
 import scanner.advanceToken
 import scanner.matchToken
@@ -10,7 +11,7 @@ import java.io.FileOutputStream
 
 class BinaryExpression(val binopToken: Token.TokenType? = null, var leftExpression: Expression? = null,
                        var rightExpression: Expression? = null) : Expression() {
-    override fun genLLCode(): CodeItem {
+    override fun genLLCode(function: Function): CodeItem {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

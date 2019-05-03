@@ -3,12 +3,13 @@ package parser.statement
 import parser.CMinusParser
 import scanner.Token
 import lowlevel.CodeItem
+import lowlevel.Function
 import java.io.FileOutputStream
 
 abstract class Statement {
     abstract fun print(spacing: String, fos: FileOutputStream)
 
-    abstract fun genLLCode(): CodeItem?
+    abstract fun genLLCode(function: Function): CodeItem?
 
     companion object {
         fun parse(): Statement {

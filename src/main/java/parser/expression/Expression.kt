@@ -4,12 +4,13 @@ import parser.CMinusParser
 import scanner.Token
 import scanner.advanceToken
 import lowlevel.CodeItem
+import lowlevel.Function
 import java.io.FileOutputStream
 
 abstract class Expression {
     abstract fun print(spacing: String, fos: FileOutputStream)
 
-    abstract fun genLLCode(): CodeItem
+    abstract fun genLLCode(function: Function): CodeItem
 
     companion object {
         fun parse(): Expression {

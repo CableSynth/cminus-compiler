@@ -2,11 +2,12 @@ package parser.expression
 
 import compiler.misc.write
 import lowlevel.CodeItem
+import lowlevel.Function
 import scanner.advanceToken
 import java.io.FileOutputStream
 
 class AssignExpression(var varExpression: VarExpression? = null, private val expression: Expression): Expression() {
-    override fun genLLCode(): CodeItem {
+    override fun genLLCode(function: Function): CodeItem {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

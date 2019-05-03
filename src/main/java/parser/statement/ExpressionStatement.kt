@@ -7,6 +7,7 @@ import scanner.Token
 import scanner.advanceToken
 import scanner.matchToken
 import lowlevel.CodeItem
+import lowlevel.Function
 import java.io.FileOutputStream
 
 class ExpressionStatement(private val expr: Expression? = null): Statement() {
@@ -14,8 +15,8 @@ class ExpressionStatement(private val expr: Expression? = null): Statement() {
         expr?.print(spacing, fos)
     }
 
-    override fun genLLCode(): CodeItem? {
-        return expr?.genLLCode()
+    override fun genLLCode(function: Function): CodeItem? {
+        return expr?.genLLCode(function)
     }
 
     companion object {

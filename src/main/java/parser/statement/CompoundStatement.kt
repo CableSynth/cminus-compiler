@@ -2,6 +2,7 @@ package parser.statement
 
 import compiler.misc.write
 import lowlevel.CodeItem
+import lowlevel.Function
 import parser.CMinusParser
 import parser.declaration.Declaration
 import scanner.Token
@@ -30,7 +31,7 @@ class CompoundStatement(private var localDeclarations: ArrayList<Declaration> = 
         }
     }
 
-    override fun genLLCode(): CodeItem? {
+    override fun genLLCode(function: Function): CodeItem? {
 
         var declItem: CodeItem? = null
         val statmentItem: CodeItem
