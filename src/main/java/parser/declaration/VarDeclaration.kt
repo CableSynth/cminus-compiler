@@ -7,7 +7,7 @@ import lowlevel.Data.TYPE_INT
 import parser.declaration.Declaration
 import java.io.FileOutputStream
 
-class VarDeclaration(private var identifierName: String = "",
+class VarDeclaration(var identifierName: String = "",
                      private var size: String = "") : Declaration() {
 
     override fun print(spacing: String, fos: FileOutputStream) {

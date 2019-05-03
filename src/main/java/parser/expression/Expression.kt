@@ -10,7 +10,7 @@ import java.io.FileOutputStream
 abstract class Expression {
     abstract fun print(spacing: String, fos: FileOutputStream)
 
-    abstract fun genLLCode(function: Function): CodeItem
+    abstract fun genLLCode(function: Function): Int
 
     companion object {
         fun parse(): Expression {

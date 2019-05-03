@@ -1,13 +1,26 @@
 package parser.expression
 
 import compiler.misc.write
-import lowlevel.CodeItem
 import lowlevel.Function
+import lowlevel.Operand
+import lowlevel.Operation
 import java.io.FileOutputStream
 
 class NumberExpression(var number: Int = 0): Expression() {
-    override fun genLLCode(function: Function): CodeItem {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+    override fun genLLCode(function: Function): Int {
+        val regNum = function.newRegNum
+
+        val dstOperand = Operand(Operand.OperandType.REGISTER, regNum)
+        val srcOperand = Operand(Operand.OperandType.INTEGER, number)
+
+        val oper = Operation(Operation.OperationType.ASSIGN, function.currBlock)
+        oper.setDestOperand(0, dstOperand)
+        oper.setSrcOperand(0, srcOperand)
+
+        function.currBlock.appendOper(oper)
+
+        return regNum
     }
 
     override fun print(spacing: String, fos: FileOutputStream) {

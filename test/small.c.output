@@ -1,12 +1,60 @@
 Program {
    VarDecl a 
-   VarDecl b 
-   VarDecl c 
-   VarDecl d 
-   VarDecl e 
    FunDecl main 
      Param void
      CmpStmt 
-       LocalDecls 
-         VarDecl x 
+       StmtList 
+         AssignExpr
+           VarExpr a 
+           NumExpr 2 
+         SelectionStmt 
+           BinaryExp EQUAL_TOKEN
+             VarExpr a 
+             NumExpr 2 
+           CmpStmt 
+             StmtList 
+               AssignExpr
+                 VarExpr a 
+                 NumExpr 4 
+         SelectionStmt 
+           BinaryExp LESS_THAN_TOKEN
+             VarExpr a 
+             NumExpr 2 
+           CmpStmt 
+             StmtList 
+               AssignExpr
+                 VarExpr a 
+                 NumExpr 5 
+           CmpStmt 
+             StmtList 
+               AssignExpr
+                 VarExpr a 
+                 NumExpr 6 
+         SelectionStmt 
+           BinaryExp GREATER_THAN_TOKEN
+             VarExpr a 
+             NumExpr 2 
+           CmpStmt 
+             StmtList 
+               AssignExpr
+                 VarExpr a 
+                 NumExpr 7 
+           SelectionStmt 
+             BinaryExp EQUAL_TOKEN
+               VarExpr a 
+               NumExpr 1 
+             CmpStmt 
+               StmtList 
+                 AssignExpr
+                   VarExpr a 
+                   NumExpr 8 
+         ReturnStmt 
+           CallExpr test
+             NumExpr 1 
+   FunDecl test 
+     Param t
+     CmpStmt 
+       StmtList 
+         ReturnStmt 
+           NumExpr 1 
 }

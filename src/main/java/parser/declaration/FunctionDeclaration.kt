@@ -51,12 +51,25 @@ class FunctionDeclaration(private var params: ArrayList<Param> = ArrayList(),
 
         val function = Function(returnType, identifierName, firstParam)
 
-        function.createBlock0()
-        function.appendBlock(BasicBlock(function))
+        var next = firstParam
+        while (next != null) {
+            function.table[next.name] = function.newRegNum
+            next = next.nextParam
+        }
 
-        val codeItem = compoundStatement.genLLCode(function)
+        function.createBlock0()
+
+        val basicBlock = BasicBlock(function)
+        function.appendBlock(basicBlock)
+        function.currBlock = basicBlock
+
+        compoundStatement.genLLCode(function)
 
         function.appendBlock(function.genReturnBlock())
+
+        if (function.firstUnconnectedBlock != null) {
+            function.appendBlock(function.firstUnconnectedBlock)
+        }
 
         return function
     }

@@ -1,7 +1,7 @@
 package parser.statement
 
 import compiler.misc.write
-import lowlevel.CodeItem
+import lowlevel.*
 import lowlevel.Function
 import parser.CMinusParser
 import parser.expression.Expression
@@ -12,8 +12,48 @@ import java.io.FileOutputStream
 
 class SelectionStatement(private var expression : Expression, private var thenStatement : Statement? = null, private var elseStatement: Statement? = null) :
     Statement() {
-    override fun genLLCode(function: Function): CodeItem? {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun genLLCode(function: Function) {
+        val thenBlk = BasicBlock(function)
+        val postBlk = BasicBlock(function)
+        val elseBlk: BasicBlock? = if(elseStatement != null) BasicBlock(function) else null
+
+        val expReg = expression.genLLCode(function)
+        val regNum = function.newRegNum
+
+        val dstOperand = Operand(Operand.OperandType.REGISTER, regNum)
+        val srcOperand1 = Operand(Operand.OperandType.REGISTER, expReg)
+        val srcOperand2 = Operand(Operand.OperandType.INTEGER, 0)
+        val srcOperand3 = Operand(Operand.OperandType.BLOCK, elseBlk?.blockNum ?: postBlk.blockNum)
+
+        val oper = Operation(Operation.OperationType.BEQ, function.currBlock)
+        oper.setDestOperand(0, dstOperand)
+        oper.setSrcOperand(0, srcOperand1)
+        oper.setSrcOperand(1, srcOperand2)
+        oper.setSrcOperand(2, srcOperand3)
+
+        function.currBlock.appendOper(oper)
+        function.appendBlock(thenBlk)
+        function.currBlock = thenBlk
+
+        thenStatement!!.genLLCode(function)
+
+        function.appendBlock(postBlk)
+
+        if (elseBlk != null) {
+            function.currBlock = elseBlk
+            elseStatement!!.genLLCode(function)
+
+            val srcOperand = Operand(Operand.OperandType.BLOCK, postBlk.blockNum)
+
+            val elseOper = Operation(Operation.OperationType.JMP, function.currBlock)
+            elseOper.setSrcOperand(0, srcOperand)
+
+            function.currBlock.appendOper(elseOper)
+
+            function.appendUnconnectedBlock(elseBlk)
+        }
+
+        function.currBlock = postBlk
     }
 
     override fun print(spacing: String, fos: FileOutputStream) {

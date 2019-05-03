@@ -15,8 +15,8 @@ class ExpressionStatement(private val expr: Expression? = null): Statement() {
         expr?.print(spacing, fos)
     }
 
-    override fun genLLCode(function: Function): CodeItem? {
-        return expr?.genLLCode(function)
+    override fun genLLCode(function: Function) {
+        expr?.genLLCode(function)
     }
 
     companion object {

@@ -1,11 +1,31 @@
 (DATA  a)
-(DATA  b)
-(DATA  d)
-(DATA  e)
 (FUNCTION  main  []
   (BB 2
   )
+  (BB 3
+    (OPER 4 Load [(r 1)]  [(s a)(i 0)])
+    (OPER 5 Mov [(r 2)]  [(i 2)])
+    (OPER 6 Mov [(r 1)]  [(r 2)])
+    (OPER 7 Store []  [(r 1)(s a)(i 0)])
+    (OPER 8 Mov [(r 3)]  [(i 1)])
+    (OPER 15 Mov [(m EDI)]  [(r 3)])
+    (OPER 10 JSR []  [(s test)(m EDI)] [(numParams 1)])
+    (OPER 11 Mov [(r 4)]  [(m EAX)])
+    (OPER 12 Mov [(m EAX)]  [(r 4)])
+  )
   (BB 4
-    (OPER 5 Return []  [(m EAX)])
+    (OPER 14 Return []  [(m EAX)])
+  )
+)
+(FUNCTION  test  [(int t)]
+  (BB 2
+    (OPER 8 Mov [(r 1)]  [(m EDI)])
+  )
+  (BB 3
+    (OPER 4 Mov [(r 2)]  [(i 1)])
+    (OPER 5 Mov [(m EAX)]  [(r 2)])
+  )
+  (BB 4
+    (OPER 7 Return []  [(m EAX)])
   )
 )

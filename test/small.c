@@ -1,19 +1,28 @@
 int a;
-int b;
-int c;
-int d;
-int e;
 
-void main(void) {
-    int x;
+int main(void) {
+    a = 2;
+
+
+    if (a == 2) {
+        a = 4;
+    }
+
+    if (a < 2) {
+        a = 5;
+    } else {
+        a = 6;
+    }
+
+    if (a > 2) {
+        a = 7;
+    } else if (a == 1) {
+        a = 8;
+    }
+
+    return test(1);
 }
 
-/*
-
-void fun(void) {
-
+int test(int t) {
+    return 1;
 }
-
-void test(int array[]) {
-
-} */

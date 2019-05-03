@@ -9,7 +9,7 @@ import java.io.FileOutputStream
 abstract class Statement {
     abstract fun print(spacing: String, fos: FileOutputStream)
 
-    abstract fun genLLCode(function: Function): CodeItem?
+    abstract fun genLLCode(function: Function)
 
     companion object {
         fun parse(): Statement {
