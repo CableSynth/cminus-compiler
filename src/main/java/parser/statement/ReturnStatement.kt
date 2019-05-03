@@ -2,6 +2,7 @@ package parser.statement
 
 import compiler.misc.write
 import lowlevel.CodeItem
+import lowlevel.Function
 import parser.CMinusParser
 import parser.expression.Expression
 import scanner.Token
@@ -9,7 +10,7 @@ import scanner.matchToken
 import java.io.FileOutputStream
 
 class ReturnStatement(var expression: Expression? = null) : Statement() {
-    override fun genLLCode(): CodeItem? {
+    override fun genLLCode(function: Function): CodeItem? {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

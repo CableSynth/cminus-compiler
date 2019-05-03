@@ -54,9 +54,7 @@ class FunctionDeclaration(private var params: ArrayList<Param> = ArrayList(),
         function.createBlock0()
         function.appendBlock(BasicBlock(function))
 
-        val codeItem = compoundStatement.genLLCode()
-
-
+        val codeItem = compoundStatement.genLLCode(function)
 
         function.appendBlock(function.genReturnBlock())
 
